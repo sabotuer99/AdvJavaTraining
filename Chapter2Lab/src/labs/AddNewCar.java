@@ -8,10 +8,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Result;
+import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -36,6 +38,15 @@ public class AddNewCar {
 		    DOMSource source = new DOMSource(document);
 		    Result xmlResult = new StreamResult("garage.xml");
 		    transformer.transform(source, xmlResult);
+		    
+		    
+		    //Source xmlSource = new StreamSource("garage.xml");
+		    Source xslSource = new StreamSource("garage.xslt");
+		    Result xmlResult2 = new StreamResult("garage.html");
+
+		    TransformerFactory tFactory2 = TransformerFactory.newInstance();
+		    Transformer transformer2 = tFactory2.newTransformer(xslSource);
+		    transformer2.transform(source, xmlResult2);
 		    
 		} catch(Exception e){
 			
