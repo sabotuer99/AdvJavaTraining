@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <garage>
 	<car miles="0">
 		<make>Porsche</make>
@@ -26,8 +26,18 @@
 		<year>1992</year>
 	</car>
 	<van miles="17500">
-		<make>Kia</make>
+	    <make>Kia</make>
 		<model>Sedona</model>
 		<year>2008</year>
 	</van>
+	<car miles="1024">
+        <model>Enzo</model>
+        <make>Ferrari</make>
+        <year>2006</year>
+    </car>
+	<car miles="8750">
+        <make>Ford</make>
+        <model>Fusion</model>
+        <year>2015</year>
+    </car>
 </garage>
