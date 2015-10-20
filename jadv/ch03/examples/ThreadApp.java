@@ -22,6 +22,12 @@ class PrintNumbers2 extends Thread {
     int i, j;
     for (i = start, j = 0; j < 20; j++, i += increment) {
       System.out.println(i);
+      try {
+		Thread.sleep(100);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     }
   }
 

@@ -22,6 +22,12 @@ class PrintNumbers {
     int i, j;
     for (i = start, j = 0; j < 20; j++, i += increment) {
       System.out.println(i);
+      try {
+		Thread.yield();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     }
   }
 }
