@@ -1,0 +1,62 @@
+package solutions;
+
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Employee implements Serializable {
+  private static final long serialVersionUID = -6850790624958532286L;
+  private int id;
+  private String firstName;
+  private String lastName;
+  private String title;
+  private Date hireDate;
+  private Date departmentStartDate;
+
+  public Employee(int i, String first, String last, String ti, 
+      Date hire) {
+    this(i, first, last, ti, hire, hire);
+  }
+
+  public Employee(int i, String first, String last, String ti,
+      Date hire, Date deptStart) {
+    id = i;
+    firstName = first;
+    lastName = last;
+    title = ti;
+    hireDate = hire;
+    departmentStartDate = deptStart;
+  }
+
+  public String toString() {
+    SimpleDateFormat df = new SimpleDateFormat("MMM d, yyyy");
+    StringBuilder result = new StringBuilder();
+    result.append(title);
+    result.append(" ").append(firstName);
+    result.append(" ").append(lastName);
+    result.append(" hired ").append(df.format(hireDate));
+    result.append(" department start date ").append(
+        df.format(departmentStartDate));
+    return result.toString();
+  }
+
+  public String getName() {
+    return firstName + " " + lastName;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public Date getHireDate() {
+    return hireDate;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public Date getDepartmentStartDate() {
+    return departmentStartDate;
+  }
+}

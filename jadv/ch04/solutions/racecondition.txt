@@ -1,0 +1,10 @@
+The code can cause a race condition if two threads call ArrayList.add() simultaneously.  
+
+If the list is less than the anticipated size, then the potential reason is as follows:
+
+ArrayList is backed by an underlying Java language array. While one thread is suspended in midst of incrementing the size of the array (size++), another thread adds an element into the array at the old index since it hasn't been incremented yet, thus removing the first element.
+
+Another possible problem may be an ArrayIndexOutOfBoundsException, this may be caused by the following:
+
+While one thread is nearly finished with increasing the capacity of the underlying array, another thread trys to add an element at one past the current capacity. 
+

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<garage>
+  <car miles="0">
+    <make>Porsche</make><model>911</model><year>2001</year>
+  </car>
+  <car miles="250000">
+    <make>VW</make><model>Beetle</model><year>1974</year>
+  </car>
+  <van miles="50000">
+    <make>Ford</make><model>E350</model><year>2000</year>
+  </van>
+  <truck miles="44500">
+    <make>Ford</make><model>F250</model><year>2006</year>
+  </truck>
+</garage>
+

@@ -1,0 +1,5 @@
+ldap://ldap.yo-linux.com/o=stooges
+
+ldap://ldap.forumsys.com/dc=example,dc=com
+
+ldap://ldap.testathon.net/OU=users,DC=testathon,DC=net

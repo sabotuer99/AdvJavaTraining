@@ -1,0 +1,8 @@
+When you run ReadDept using the new class on the old object it throws
+a NullPointerException because the SimpleDateFormat.format(Date)
+method receives a null parameter when we pass departmentStartDate.
+
+A newly constructed object will never have this problem because the
+constructors provide a default value for departmentStartDate. However,
+when we deserialize an old version of the class in which that field is
+missing, it is set to null by the default deserialization mechanism.

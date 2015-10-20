@@ -1,0 +1,8 @@
+208.67.220.220 (OpenDNS)
+208.67.222.222 (OpenDNS)
+
+8.20.247.20 (Comodo)
+8.26.56.26 (Comodo)
+
+208.76.50.50 (SmartViper)
+208.76.51.51 (SmartViper)

@@ -1,0 +1,1 @@
+The second version uses UTF-16 encoding, so when we look at the result file it looks like the characters are spaced out.

@@ -1,0 +1,97 @@
+package examples;
+
+import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Person implements Serializable {
+  private static final long serialVersionUID = 735658051147167161L;
+
+  private String name;
+  private String title;
+  private Date birthDate;
+  private int id;
+  private String quote =
+    "Be respectful to your superiors, if you have any. - Mark Twain";
+
+  public Person() {
+  }
+
+  public Person(String nm, String ti, String shortBirthDate, int i) {
+    name = nm;
+    title = ti;
+    id = i;
+    try {
+      SimpleDateFormat df = new SimpleDateFormat("M/d/yyyy");
+      birthDate = df.parse(shortBirthDate);
+    }
+    catch (ParseException e) {
+      System.err.println("Parsing error: " + shortBirthDate);
+      birthDate = new Date();
+    }
+  }
+
+  public boolean equals(Object obj) {
+    if (!(obj instanceof Person)) {
+      return false;
+    }
+
+    Person p = (Person) obj;
+
+    return name.equals(p.name) && title.equals(p.title)
+        && birthDate.equals(p.birthDate) && id == p.id;
+  }
+
+  public String toString() {
+    SimpleDateFormat df = new SimpleDateFormat("MMM d, yyyy");
+    StringBuilder result = new StringBuilder();
+    result.append(title).append(" ").append(name);
+    result.append(" born ").append(df.format(birthDate));
+    result.append(" id ").append(id);
+    if (quote == null) {
+      result.append(" old class version: no quote specified");
+    }
+    else {
+      result.append(" quote ");
+      result.append('"').append(quote).append('"');
+    }
+    return result.toString();
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public Date getBirthDate() {
+    return birthDate;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public String getQuote() {
+    return quote;
+  }
+
+  public void setName(String nm) {
+    name = nm;
+  }
+
+  public void setTitle(String t) {
+    title = t;
+  }
+
+  public void setBirthDate(Date dt) {
+    birthDate = dt;
+  }
+
+  public void setId(int i) {
+    id = i;
+  }
+}
