@@ -33,19 +33,19 @@ public class CallableRace implements Callable<String> {
 		CallableRace race = new CallableRace();
 		theList = Collections.synchronizedList(new ArrayList<String>());
 
-		ExecutorService ex = Executors.newFixedThreadPool(3);
-
-		Future<String> status1 = ex.submit(race);
-		Future<String> status2 = ex.submit(race);
-		Future<String> status3 = ex.submit(race);
+		int threadCount = 20;
 		
-		System.out.println(status1.get());
-		System.out.println(status2.get());
-		System.out.println(status3.get());
-		// Iterator<String> it = theList.iterator();
-		// while (it.hasNext()) {
-		// System.out.println(it.next());
-		// }
+		ExecutorService ex = Executors.newFixedThreadPool(threadCount);
+
+		List<Future<String>> status = new ArrayList<Future<String>>();
+		
+		for(int i = 0; i < threadCount; i++){
+			status.add(ex.submit(race));
+		}
+		
+		for(int i = 0; i < threadCount; i++){
+			System.out.println(status.get(i).get());
+		}
 
 		System.out.println("Size of the list " + theList.size());
 	}
