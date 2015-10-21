@@ -38,6 +38,7 @@ public class ReadFile2 implements Runnable{
 			System.out.println(objNumber + " : " + in.nextLine());
 			Thread.yield();
 		}
+		in.close();
 	}
 	
 	@Override

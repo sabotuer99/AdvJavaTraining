@@ -8,6 +8,7 @@ import java.util.List;
 
 public class States {
 
+	
   public static void main(String[] args) {
     List<String> nonThreadSafeStates = getListOfStatesAndTerritories();
     // Create a "Thread Safe" version of the list
@@ -18,20 +19,22 @@ public class States {
     removeTerritories(states);
 
     // Loop through the list, displaying each value
-    synchronized (states) {
-      Iterator<String> it = states.iterator();
-      while (it.hasNext()) {
-        System.out.print(it.next());
-        if (it.hasNext())
-          System.out.print(", ");
-        else
-          System.out.println();
-      }
+    while(states.size() > 50){
+	    synchronized (states) {
+	      Iterator<String> it = states.iterator();
+	      while (it.hasNext()) {
+	        System.out.print(it.next());
+	        if (it.hasNext())
+	          System.out.print(", ");
+	        else
+	          System.out.println();
+	      }
+	    }
     }
   }
 
-  private static void removeTerritories(List<String> states) {
-    new Thread(new Runnable() {
+  private static void removeTerritories(final List<String> states) {
+    new Thread(new Runnable() { 	
       public void run() {
         synchronized (states) {
           for (int i = 0; i < states.size(); i++) {

@@ -29,7 +29,7 @@ public class States2 {
     }
   }
 
-  private static void removeTerritories(List<String> states) {
+  private static void removeTerritories(final List<String> states) {
     new Thread(new Runnable() {
       public void run() {
         for (int i = 0; i < states.size(); i++) {
