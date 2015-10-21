@@ -18,7 +18,7 @@ public class ReadFields {
     }
 
     Class<ReadFields> rfClass = ReadFields.class;
-    Field[] fields = rfClass.getFields();
+    Field[] fields = rfClass.getDeclaredFields();
 
     System.out.println("number of fields: " + fields.length);
 
