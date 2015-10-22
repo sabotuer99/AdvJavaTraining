@@ -7,8 +7,9 @@ import examples.server.count.CounterFactory;
 
 public class CountClient {
   public static void main(String args[]) {
-    System.setSecurityManager(new SecurityManager());
-
+   // System.setSecurityManager(new SecurityManager());
+   // System.setProperty("java.security.policy","file:/c/Users/Student/workspace/jadv/ch09/client.policy");
+    
     try {
       CounterFactory factory = (CounterFactory) Naming
           .lookup("///CountFactory");
