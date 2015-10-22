@@ -10,7 +10,9 @@ public class ServerStats implements Serializable {
 	private int connectionCount;
 	
 	public void incrementCount(){
-		connectionCount++;
+		synchronized(this){
+			connectionCount++;
+		}
 	}
 	
 	public String getFileName() {
